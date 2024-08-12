@@ -1,4 +1,19 @@
-
+/// **Clase DetailsModel**
+///
+/// Modelo de datos que representa los detalles de una categoría o elemento dentro de la aplicación.
+///
+/// **Propiedades:**
+/// - [count]: Cantidad total de elementos o detalles.
+/// - [data]: Lista de detalles individuales, cada uno representado por un objeto [DatumResponse].
+/// - [image]: URL de la imagen asociada a los detalles.
+/// - [key]: Clave única para identificar el conjunto de detalles.
+/// - [modelData]: Datos adicionales del modelo, representados como una cadena de texto.
+/// - [title]: Título del conjunto de detalles.
+///
+/// **Métodos:**
+/// - [fromJson]: Crea una instancia de [DetailsModel] a partir de un mapa JSON.
+/// - [toJson]: Convierte la instancia de [DetailsModel] a un mapa JSON.
+///
 class DetailsModel {
   final int count;
   final List<DatumResponse> data;
@@ -16,6 +31,16 @@ class DetailsModel {
     required this.title,
   });
 
+  /// **Constructor Factory fromJson**
+  ///
+  /// Crea una instancia de [DetailsModel] a partir de un mapa JSON.
+  ///
+  /// **Parámetros:**
+  /// - [json]: Mapa que contiene los datos JSON para inicializar una instancia de [DetailsModel].
+  ///
+  /// **Retorna:**
+  /// - Una instancia de [DetailsModel] con los datos proporcionados en el mapa JSON.
+  ///
   factory DetailsModel.fromJson(Map<String, dynamic> json) => DetailsModel(
         count: json["count"] ?? 0,
         data: json["data"] != null
@@ -27,6 +52,13 @@ class DetailsModel {
         title: json["title"] ?? '',
       );
 
+  /// **Método toJson**
+  ///
+  /// Convierte la instancia de [DetailsModel] a un mapa JSON.
+  ///
+  /// **Retorna:**
+  /// - Un mapa JSON que representa la instancia de [DetailsModel].
+  ///
   Map<String, dynamic> toJson() => {
         "count": count,
         "data": List<dynamic>.from(data.map((x) => x.toJson())),
@@ -36,6 +68,75 @@ class DetailsModel {
         "title": title,
       };
 }
+
+/// **Clase DatumResponse**
+///
+/// Modelo de datos que representa un detalle individual dentro de un conjunto de detalles.
+///
+/// **Propiedades:**
+/// - [about]: Información adicional sobre el detalle.
+/// - [archetype]: Lista de arquetipos asociados con el detalle.
+/// - [avatar]: URL del avatar asociado con el detalle.
+/// - [avatar200]: URL del avatar con resolución 200x200.
+/// - [avatar400]: URL del avatar con resolución 400x400.
+/// - [behance]: URL del perfil de Behance asociado con el detalle.
+/// - [benefitsInCompanies]: Beneficios en empresas asociados con el detalle.
+/// - [career]: Carrera o experiencia profesional asociada.
+/// - [city]: Ciudad del detalle.
+/// - [compatibility]: Compatibilidad del detalle con otros elementos.
+/// - [compatibilityReason]: Razón de la compatibilidad.
+/// - [connected]: Información sobre conexiones.
+/// - [country]: País del detalle.
+/// - [createdAt]: Fecha de creación del detalle.
+/// - [desiredRole]: Rol deseado.
+/// - [dreamBrands]: Marcas de sueños asociadas.
+/// - [dreamRoles]: Roles de sueños asociados.
+/// - [dreamTeam]: Equipo de sueños asociado.
+/// - [email]: Correo electrónico asociado.
+/// - [facebook]: URL del perfil de Facebook.
+/// - [github]: URL del perfil de GitHub.
+/// - [hobbies]: Lista de pasatiempos.
+/// - [id]: Identificador único del detalle.
+/// - [instagram]: URL del perfil de Instagram.
+/// - [interestAreas]: Lista de áreas de interés, representadas por objetos [InterestAreaResponse].
+/// - [knowledge]: Lista de conocimientos.
+/// - [knowledges]: Conocimientos adicionales.
+/// - [languages]: Lista de idiomas.
+/// - [linkedin]: URL del perfil de LinkedIn.
+/// - [matchesCount]: Cantidad de coincidencias.
+/// - [myLanguages]: Idiomas del usuario.
+/// - [name]: Nombre del detalle.
+/// - [opencallObjective]: Objetivo de la convocatoria abierta.
+/// - [pinterest]: URL del perfil de Pinterest.
+/// - [position]: Posición asociada.
+/// - [preferWork]: Preferencias de trabajo.
+/// - [profileCompleted]: Porcentaje de perfil completado.
+/// - [programsForProductivity]: Programas para productividad.
+/// - [resumeDescription]: Descripción del currículum.
+/// - [resumeDownload]: Indica si el currículum se puede descargar.
+/// - [resumeId]: Identificador del currículum.
+/// - [resumeImage]: Imagen del currículum.
+/// - [reviewCount]: Cantidad de reseñas.
+/// - [reviewGeneralUser]: Reseña general del usuario.
+/// - [save]: Indica si el detalle está guardado.
+/// - [sharedCount]: Cantidad de veces compartido.
+/// - [skills]: Lista de habilidades.
+/// - [slug]: Slug o identificador amigable del detalle.
+/// - [sponsored]: Indica si el detalle es patrocinado.
+/// - [tiktok]: URL del perfil de TikTok.
+/// - [tools]: Lista de herramientas asociadas.
+/// - [twitter]: URL del perfil de Twitter.
+/// - [typeAudience]: Tipo de audiencia.
+/// - [video]: URL del video asociado.
+/// - [videoUrl]: URL del video adicional.
+/// - [wantToBe]: Lo que el detalle quiere ser.
+/// - [wantToWork]: Lo que el detalle quiere trabajar.
+/// - [workMethodologies]: Metodologías de trabajo.
+///
+/// **Métodos:**
+/// - [fromJson]: Crea una instancia de [DatumResponse] a partir de un mapa JSON.
+/// - [toJson]: Convierte la instancia de [DatumResponse] a un mapa JSON.
+///
 class DatumResponse {
     final String about;
     final List<dynamic> archetype;
@@ -157,7 +258,17 @@ class DatumResponse {
         required this.workMethodologies,
     });
 
-      factory DatumResponse.fromJson(Map<String, dynamic> json) => DatumResponse(
+    /// **Constructor Factory fromJson**
+    ///
+    /// Crea una instancia de [DatumResponse] a partir de un mapa JSON.
+    ///
+    /// **Parámetros:**
+    /// - [json]: Mapa que contiene los datos JSON para inicializar una instancia de [DatumResponse].
+    ///
+    /// **Retorna:**
+    /// - Una instancia de [DatumResponse] con los datos proporcionados en el mapa JSON.
+    ///
+    factory DatumResponse.fromJson(Map<String, dynamic> json) => DatumResponse(
         about: json["about"] ?? '',
         archetype: json["archetype"] != null
             ? List<dynamic>.from(json["archetype"].map((x) => x))
@@ -240,6 +351,13 @@ class DatumResponse {
         workMethodologies: json["work_methodologies"] ?? '',
       );
 
+    /// **Método toJson**
+    ///
+    /// Convierte la instancia de [DatumResponse] a un mapa JSON.
+    ///
+    /// **Retorna:**
+    /// - Un mapa JSON que representa la instancia de [DatumResponse].
+    ///
     Map<String, dynamic> toJson() => {
         "about": about,
         "archetype": List<dynamic>.from(archetype.map((x) => x)),
@@ -302,6 +420,18 @@ class DatumResponse {
     };
 }
 
+/// **Clase InterestAreaResponse**
+///
+/// Modelo de datos que representa un área de interés dentro de un detalle.
+///
+/// **Propiedades:**
+/// - [key]: Clave única que identifica el área de interés.
+/// - [label]: Etiqueta o nombre del área de interés.
+///
+/// **Métodos:**
+/// - [fromJson]: Crea una instancia de [InterestAreaResponse] a partir de un mapa JSON.
+/// - [toJson]: Convierte la instancia de [InterestAreaResponse] a un mapa JSON.
+///
 class InterestAreaResponse {
     final int key;
     final String label;
@@ -311,11 +441,28 @@ class InterestAreaResponse {
         required this.label,
     });
 
+    /// **Constructor Factory fromJson**
+    ///
+    /// Crea una instancia de [InterestAreaResponse] a partir de un mapa JSON.
+    ///
+    /// **Parámetros:**
+    /// - [json]: Mapa que contiene los datos JSON para inicializar una instancia de [InterestAreaResponse].
+    ///
+    /// **Retorna:**
+    /// - Una instancia de [InterestAreaResponse] con los datos proporcionados en el mapa JSON.
+    ///
     factory InterestAreaResponse.fromJson(Map<String, dynamic> json) => InterestAreaResponse(
-        key: json["key"]??'',
-        label: json["label"]??'',
+        key: json["key"] ?? 0,
+        label: json["label"] ?? '',
     );
 
+    /// **Método toJson**
+    ///
+    /// Convierte la instancia de [InterestAreaResponse] a un mapa JSON.
+    ///
+    /// **Retorna:**
+    /// - Un mapa JSON que representa la instancia de [InterestAreaResponse].
+    ///
     Map<String, dynamic> toJson() => {
         "key": key,
         "label": label,
